@@ -1,4 +1,4 @@
-### vim with python, more installation and documentation to: http://ymeo.info/blog/2018/10/18/jiyuvimdepythonkaifahuanjing/
+### vim with python, more installation and documentation to: https://disq.us/t/37le86d
 
 
 #### with Vundle to manage plugins:
