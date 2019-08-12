@@ -1,32 +1,33 @@
-"execute pathogen#infect()
+execute pathogen#infect()
 
-set nocompatible              " required
 filetype off                  " required
+set nocompatible              " required
+set fileformat=unix
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+" call vundle#end()            " required
 filetype plugin indent on    " required
 
-Plugin 'jiangmiao/auto-pairs'
+" Plugin 'jiangmiao/auto-pairs'
 
 au BufNewFile,BufRead *.py 
                         \ set tabstop=4 |
                         \ set softtabstop=4 |
                         \ set shiftwidth=4 |
-                        \ set textwidth=79 |
+                        " \ set textwidth=79 |
                         \ set wrap |
                         \ set expandtab |
                         \ set autoindent |
@@ -37,14 +38,14 @@ au BufNewFile,BufRead *.js,*.html,*.css
                         \ set softtabstop=2 |
                         \ set shiftwidth=2
 
-Plugin 'vim-scripts/indentpython.vim'
+" Plugin 'vim-scripts/indentpython.vim'
 
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufNewFile,BufRead *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set encoding=utf-8
 
-"Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -59,45 +60,45 @@ if 'VIRTUAL_ENV' in os.environ:
   exec(compile(open(activate_this, "rb").read(), activate_this, 'exec'), dict(__file__=activate_this))
 EOF
 
-"python3 << EOF
-"import os
-"import sys
-"if 'VIRTUAL_ENV' in os.environ:
-"       project_base_dir = os.environ['VIRTUAL_ENV']
-"       activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"       exec(compile(open(activate_this, "rb").read(), activate_this, 'exec'), dict(__file__=activate_this))
-"EOF
+" Plugin 'scrooloose/syntastic'
 
-Plugin 'scrooloose/syntastic'
+" Plugin 'davidhalter/jedi-vim'
 
-Plugin 'davidhalter/jedi-vim'
-
-Plugin 'nvie/vim-flake8'
+" Plugin 'nvie/vim-flake8'
 
 let python_highlight_all=1
 syntax on
 
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'jnurmine/Zenburn'
+" Plugin 'altercation/vim-colors-solarized'
 
-if has('gui_running')
-        set background=dark
-        colorscheme solarized
-else
-        colorscheme zenburn
-endif
+" if has('gui_running')
+"         set background=dark
+"         colorscheme solarized
+" else
+"         colorscheme zenburn
+" endif
+set termguicolors
+colorscheme solarized8_flat
 
-call togglebg#map("<F5>")
+" call togglebg#map("<F5>")
 
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 
-Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'jistr/vim-nerdtree-tabs'
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
 
 set nu
+set backspace=indent,eol,start
+
+"map settings
+nnoremap k k
+nnoremap j j
+nnoremap h h
+nnoremap l l
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -105,4 +106,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-Plugin 'tpope/vim-fugitive'
+"fold code
+
+
+" Plugin 'tpope/vim-fugitive'
