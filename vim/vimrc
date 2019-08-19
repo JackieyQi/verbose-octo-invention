@@ -1,4 +1,5 @@
 execute pathogen#infect()
+execute pathogen#helptags()
 
 filetype off                  " required
 set nocompatible              " required

@@ -26,7 +26,7 @@ git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 git clone https://github.com/vim-syntastic/syntastic.git ~/.vim/bundle/syntastic
 git clone https://github.com/vim-scripts/indentpython.vim.git ~/.vim/bundle/indentpython.vim
 git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
-git clone https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 git clone https://github.com/jistr/vim-nerdtree-tabs.git ~/.vim/bundle/vim-nerdtree-tabs
 git clone https://github.com/lifepillar/vim-solarized8.git ~/.vim/bundle/vim-solarized8
@@ -51,7 +51,11 @@ For CentOS, Fedora, ...: sudo yum install dos2unix
 Then use it this way: dos2unix ~/.vimrc
 COMMENT
 
-sudo apt-get install tofrodos; sudo ln -s /usr/bin/fromdos /usr/bin/dos2unix
-dos2unix ~/.vimrc
+if [ "$(uname)" == "Darwin" ]; then
+	echo ":set fileformat=unix"
+else
+	sudo apt-get install tofrodos; sudo ln -s /usr/bin/fromdos /usr/bin/dos2unix
+	dos2unix ~/.vimrc
+fi
 
 echo "****************************************************************************************"
