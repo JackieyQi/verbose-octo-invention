@@ -16,6 +16,8 @@ elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT"  ]; then
 	echo "win nt no install"
 fi
 
+BASEDIR=$(PWD)
+
 vim --version
 echo "****************************************************************************************"
 
@@ -26,6 +28,7 @@ git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 git clone https://github.com/vim-syntastic/syntastic.git ~/.vim/bundle/syntastic
 git clone https://github.com/vim-scripts/indentpython.vim.git ~/.vim/bundle/indentpython.vim
 git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
+cd ~/.vim/bundle/YouCompleteMe; git submodule update --init --recursive; ./install.py --all; cd $BASEDIR
 git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 git clone https://github.com/jistr/vim-nerdtree-tabs.git ~/.vim/bundle/vim-nerdtree-tabs
@@ -38,10 +41,10 @@ git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
 echo "****************************************************************************************"
 
 rm ~/.vim/autoload/pathogen.vim
-cp $PWD/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
+cp $BASEDIR/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
 
 rm ~/.vimrc
-cp $PWD/vimrc ~/.vimrc
+cp $BASEDIR/vimrc ~/.vimrc
 
 <<'COMMENT'
 solve CRLF in the file

@@ -22,6 +22,8 @@ set fileformat=unix
 " call vundle#end()            " required
 filetype plugin indent on    " required
 
+let mapleader = ","
+
 " Plugin 'jiangmiao/auto-pairs'
 
 au BufNewFile,BufRead *.py 
