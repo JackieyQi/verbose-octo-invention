@@ -93,6 +93,8 @@ colorscheme solarized8_flat
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 " Plugin 'kien/ctrlp.vim'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 set nu
 set backspace=indent,eol,start

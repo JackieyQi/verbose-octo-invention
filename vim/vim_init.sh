@@ -24,7 +24,7 @@ echo "**************************************************************************
 mkdir ~/.vim; mkdir ~/.vim/bundle; mkdir ~/.vim/autoload;
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
-git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
+git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 git clone https://github.com/vim-syntastic/syntastic.git ~/.vim/bundle/syntastic
 git clone https://github.com/vim-scripts/indentpython.vim.git ~/.vim/bundle/indentpython.vim
 git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
