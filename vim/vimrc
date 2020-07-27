@@ -1,6 +1,7 @@
 execute pathogen#infect()
 execute pathogen#helptags()
 
+"" :filetype (to show the filetype settings)
 filetype off                  " required
 set nocompatible              " required
 set fileformat=unix
@@ -12,7 +13,7 @@ set fileformat=unix
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+"" let Vundle manage Vundle, required
 " Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
@@ -70,6 +71,7 @@ EOF
 " Plugin 'nvie/vim-flake8'
 
 let python_highlight_all=1
+syntax enable
 syntax on
 
 " Plugin 'jnurmine/Zenburn'
@@ -99,19 +101,41 @@ let g:ctrlp_cmd = 'CtrlP'
 set nu
 set backspace=indent,eol,start
 
-"map settings
+"" map settings
 nnoremap k k
 nnoremap j j
 nnoremap h h
 nnoremap l l
 
-"split navigations
+"" split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"fold code
+"" fold code
+"" syntax needs a vim plugin in which the folding information of code language is defined"
+"" za - opens a fold at the cursor."
+"" zShift+o opens - all folds at the cursor.
+"" zc - closes a fold at the cursor.
+"" zm - increases the foldlevel by one.
+"" zShift+m - closes all open folds.
+"" zr - decreases the foldlevel by one.
+"" zShift+r - decreases the foldlevel to zero -- all folds will be open."
+set foldmethod=indent
+" set foldmethod=syntax
 
+"" search word
+"" /pattern - search forward for pattern
+"" ?pattern - search backward
+"" n - repeat forward search
+"" N - repeat backward
+"" 'shift' key with '*' key - search full word in forward
+"" 'shift' key with '#' key - search full word in backward
+"" :vimgrep pattern *[**][*.sh] - :cw to enter quickfix list, :cn/:cp to backward/forward"
+
+"" highlight searched word"
+" set nohls
+set hls
 
 " Plugin 'tpope/vim-fugitive'
