@@ -16,7 +16,7 @@ elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT"  ]; then
 	echo "win nt no install"
 fi
 
-BASEDIR=$(PWD)
+BASEDIR=$(pwd)
 
 vim --version
 echo "****************************************************************************************"

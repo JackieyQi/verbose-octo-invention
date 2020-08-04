@@ -27,6 +27,13 @@ let mapleader = ","
 
 " Plugin 'jiangmiao/auto-pairs'
 
+"" languages"
+augroup langs
+	au!
+	au filetype python,lua set foldmethod=indent foldnestmax=2
+	au fileType vim set foldmethod=indent foldnestmax=2 sw=2
+augroup END
+
 au BufNewFile,BufRead *.py 
                         \ set tabstop=4 |
                         \ set softtabstop=4 |
