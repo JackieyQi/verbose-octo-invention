@@ -71,11 +71,29 @@ if 'VIRTUAL_ENV' in os.environ:
   exec(compile(open(activate_this, "rb").read(), activate_this, 'exec'), dict(__file__=activate_this))
 EOF
 
+" ale
+nnoremap <silent> <leader>aj :ALENext<cr>
+nnoremap <silent> <leader>ak :ALEPrevious<cr>
+let g:ale_linters = {'go': ['gometalinter']}
+let g:go_fmt_fail_silently = 1
+let g:ale_echo_msg_format = '%linter% says %s'
+let g:go_fmt_command = "goimports"
+let g:ale_fixers = {'python': ['black', 'isort'], 'nix': ['nixpkgs-fmt']}
+let g:ale_fix_on_save = 1
+
 " Plugin 'scrooloose/syntastic'
 
 " Plugin 'davidhalter/jedi-vim'
 
 " Plugin 'nvie/vim-flake8'
+" :retab -> vim convert tab and spaces
+let g:syntastic_python_checkers = ['python', 'flake8']
+let g:flake8_show_in_gutter=1
+highlight link Flake8_Error      Error
+highlight link Flake8_Warning    WarningMsg
+highlight link Flake8_Complexity WarningMsg
+highlight link Flake8_Naming     WarningMsg
+highlight link Flake8_PyFlake    WarningMsg
 
 let python_highlight_all=1
 syntax enable
@@ -154,5 +172,12 @@ set foldmethod=indent
 "" highlight searched word"
 " set nohls
 set hls
+
+"" del word"
+"" dw: del a word from cursor to tail"
+"" db: oppsite to 'dw'"
+"" b: move the cursor to first"
+"" daw: del a whole word"
+"" x: del a character"
 
 " Plugin 'tpope/vim-fugitive'

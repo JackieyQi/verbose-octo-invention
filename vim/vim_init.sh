@@ -37,6 +37,8 @@ git clone https://github.com/altercation/vim-colors-solarized.git ~/.vim/bundle/
 git clone https://github.com/jnurmine/Zenburn.git ~/.vim/bundle/Zenburn
 git clone https://github.com/nvie/vim-flake8.git ~/.vim/bundle/vim-flake8
 git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+git clone https://github.com/dense-analysis/ale.git ~/.vim/bundle/ale
 
 echo "****************************************************************************************"
 
