@@ -34,6 +34,10 @@ augroup langs
 	au fileType vim set foldmethod=indent foldnestmax=2 sw=2
 augroup END
 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 au BufNewFile,BufRead *.py 
                         \ set tabstop=4 |
                         \ set softtabstop=4 |
@@ -181,3 +185,10 @@ set hls
 "" x: del a character"
 
 " Plugin 'tpope/vim-fugitive'
+
+" substitute/replace
+" {作用范围}s/{目标}/{替换}/{替换标志}
+" 当前行 :s/foo/bar/g
+" 全文 :%s/foo/bar/g
+" 选区 visual模式选择区域 :'<,'>s/foo/bar/g
+" 2-11行 :5,12s/foo/bar/g
