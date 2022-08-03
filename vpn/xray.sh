@@ -1,6 +1,6 @@
 #!/bin/bash
 # xray一键安装脚本
-# Author: hijk<https://hijk.art>
+# Author: Based on: hijk<https://hijk.art>
 
 
 RED="\033[31m"      # Error message
@@ -12,20 +12,11 @@ PLAIN='\033[0m'
 # 以下网站是随机从Google上找到的无广告小说网站，不喜欢请改成其他网址，以http或https开头
 # 搭建好后无法打开伪装域名，可能是反代小说网站挂了，请在网站留言，或者Github发issue，以便替换新的网站
 SITES=(
-http://www.zhuizishu.com/
 http://xs.56dyc.com/
-#http://www.xiaoshuosk.com/
-#https://www.quledu.net/
 http://www.ddxsku.com/
 http://www.biqu6.com/
-https://www.wenshulou.cc/
-#http://www.auutea.com/
-http://www.55shuba.com/
 http://www.39shubao.com/
 https://www.23xsw.cc/
-#https://www.huanbige.com/
-https://www.jueshitangmen.info/
-https://www.zhetian.org/
 http://www.bequgexs.com/
 http://www.tjwl.com/
 )
@@ -37,7 +28,7 @@ V6_PROXY=""
 IP=`curl -sL -4 ip.sb`
 if [[ "$?" != "0" ]]; then
     IP=`curl -sL -6 ip.sb`
-    V6_PROXY="https://gh.hijk.art/"
+    V6_PROXY="https://yyq.com/"
 fi
 
 BT="false"
@@ -283,11 +274,11 @@ getData() {
         else
             resolve=`curl -sL https://hijk.art/hostip.php?d=${DOMAIN}`
             res=`echo -n ${resolve} | grep ${IP}`
-            if [[ -z "${res}" ]]; then
-                colorEcho ${BLUE}  "${DOMAIN} 解析结果：${resolve}"
-                colorEcho ${RED}  " 域名未解析到当前服务器IP(${IP})!"
-                exit 1
-            fi
+            #if [[ -z "${res}" ]]; then
+            #    colorEcho ${BLUE}  "${DOMAIN} 解析结果：${resolve}"
+            #    colorEcho ${RED}  " 域名未解析到当前服务器IP(${IP})!"
+            #    exit 1
+            #fi
         fi
     fi
 
@@ -410,7 +401,8 @@ getData() {
         echo "   5) 自定义反代站点(需以http或者https开头)"
         read -p "  请选择伪装网站类型[默认:高清壁纸站]" answer
         if [[ -z "$answer" ]]; then
-            PROXY_URL="https://bing.imeizi.me"
+            #PROXY_URL="https://bing.imeizi.me"
+            PROXY_URL="https://yyq.com"
         else
             case $answer in
             1)
@@ -433,10 +425,12 @@ getData() {
                 done
                 ;;
             3)
-                PROXY_URL="https://imeizi.me"
+                #PROXY_URL="https://imeizi.me"
+                PROXY_URL="https://yyq.com"
                 ;;
             4)
-                PROXY_URL="https://bing.imeizi.me"
+                #PROXY_URL="https://bing.imeizi.me"
+                PROXY_URL="https://yyq.com"
                 ;;
             5)
                 read -p " 请输入反代站点(以http或者https开头)：" PROXY_URL
@@ -551,7 +545,7 @@ getCert() {
             systemctl start cron
             systemctl enable cron
         fi
-        curl -sL https://get.acme.sh | sh -s email=hijk.pw@protonmail.sh
+        curl -sL https://get.acme.sh | sh -s email=wayley@live.com
         source ~/.bashrc
         ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade
         if [[ "$BT" = "false" ]]; then
